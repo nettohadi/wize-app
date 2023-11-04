@@ -11,7 +11,7 @@ main {
   align-items: center;
   background-color: #4695ea;
   padding: 8px;
-  height: 600px;
+  height: 610px;
 }
 
 .light-primary-color {
@@ -29,7 +29,3 @@ main {
 .splide__arrow {
   background-color: transparent !important;
 }
-
-/* .splide__arrow--next {
-  right: 25px !important;
-} */
