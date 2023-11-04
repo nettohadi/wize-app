@@ -15,7 +15,7 @@ import ErrorScreen from "./components/ErrorScreen";
 function App() {
   const [dayIndex, setDayIndex] = useState(0);
   const [weatherData, setWeatherData] = useState<GroupedWeatherData[]>([]);
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [isInCelcius, setIsInCelcius] = useState(true);
 
@@ -37,7 +37,9 @@ function App() {
   };
 
   useEffect(() => {
-    fetchWeatherData();
+    // add artificial delay to show leading screen
+    const timeout = setTimeout(() => fetchWeatherData(), 3000);
+    return () => clearTimeout(timeout);
   }, []);
 
   if (isLoading) {
