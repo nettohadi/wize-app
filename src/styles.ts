@@ -4,7 +4,7 @@ export const TempButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 16px;
-  padding-top: 40px;
+  padding: 40px 8px 0px 8px;
   max-width: 358px;
   width: 100%;
 `;
