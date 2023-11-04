@@ -1,30 +1,9 @@
-import {
-  GroupedWeatherData,
-  IDailyWeather,
-  IHourlyWeather,
-  IWeatherData,
-  TimeTemp,
-} from "../types";
-import { dayNames } from "./index";
-import fromUnixTime from "date-fns/fromUnixTime";
-import { getUnixTime } from "date-fns";
+import { GroupedWeatherData, TimeTemp } from "../types";
+
 import axios from "axios";
 
-const appId = "a8e939c39574645ab3979952d50db4e5";
+const appId = import.meta.env.VITE_API_KEY;
 const units = "metric";
-
-export async function fetchDaily(
-  lat: number = -8.650979,
-  long: number = 116.324944
-) {
-  const dailyEndpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${appId}&units=${units}`;
-  try {
-    const response = await axios.get(dailyEndpoint);
-    return response.data;
-  } catch (e) {
-    return e.response.data;
-  }
-}
 
 export async function fetchHourly(cityName: string = "jakarta") {
   const hourlyEndpoint = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${appId}&units=${units}`;
@@ -38,7 +17,9 @@ export async function fetchHourly(cityName: string = "jakarta") {
 }
 
 export async function fetchAll(cityName: string) {
-  cityName = cityName || "yogyakarta";
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get("q");
+  cityName = q || "Kathmandu";
 
   const hourlyData = await fetchHourly(cityName);
   if (hourlyData.cod !== "200") throw new Error(hourlyData.cod);

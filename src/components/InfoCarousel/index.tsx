@@ -1,14 +1,18 @@
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import styled from "styled-components";
+import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
+import * as S from "./styles";
 import { GroupedWeatherData } from "../../types";
-import { getWeatherImage } from "../../utils";
+import { formatTemperature, getWeatherImage } from "../../utils";
+import leftArrow from "../../assets/images/left-arrow.png";
+import rightArrow from "../../assets/images/right-arrow.png";
 
-const InfoCarousel = ({
+const WeatherCarousel = ({
   data,
-  onClick,
+  onChange,
+  isInCelcius,
 }: {
   data: GroupedWeatherData[];
-  onClick: (activeIndex: number) => void;
+  onChange: (activeIndex: number) => void;
+  isInCelcius: boolean;
 }) => {
   return (
     <div className="container" style={{ width: "100%", maxWidth: "421px" }}>
@@ -18,82 +22,43 @@ const InfoCarousel = ({
           rewind: true,
           perPage: 1,
           perMove: 1,
-          gap: "10px",
+          gap: "20px",
+          padding: "5rem",
+          focus: "center",
         }}
+        hasTrack={false}
         onActive={(splide: any, active: any) => {
-          onClick(active.index);
+          onChange(active.index);
         }}
       >
-        {data?.map((item) => {
-          return (
-            <SplideSlide>
-              <Container>
-                <img src={getWeatherImage(item.icon)} />
-                <div className="box">
-                  <div className="temperature">
-                    {Math.round(item.averageTemp)}°C
+        <SplideTrack>
+          {data?.map((item) => {
+            return (
+              <SplideSlide>
+                <S.Container>
+                  <img src={getWeatherImage(item.icon)} />
+                  <div className="box">
+                    <div className="temperature">
+                      {formatTemperature(item.averageTemp, isInCelcius)}
+                    </div>
+                    <div className="date">{item.date}</div>
                   </div>
-                  <div className="date">{item.date}</div>
-                </div>
-              </Container>
-            </SplideSlide>
-          );
-        })}
+                </S.Container>
+              </SplideSlide>
+            );
+          })}
+        </SplideTrack>
+        <div className="splide__arrows">
+          <button className="splide__arrow splide__arrow--prev">
+            <S.Arrow src={leftArrow} />
+          </button>
+          <button className="splide__arrow splide__arrow--next">
+            <S.Arrow src={rightArrow} />
+          </button>
+        </div>
       </Splide>
     </div>
   );
 };
 
-export default InfoCarousel;
-
-const Container = styled.div`
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 360px;
-  width: 240px;
-  position: relative;
-  margin-top: 20px;
-
-  > .box {
-    background-color: #0a457b80;
-    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.32);
-    border-radius: 24px;
-    height: 240px;
-    width: 240px;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 14px;
-    padding-top: 48px;
-  }
-
-  .temperature {
-    color: #f6d476;
-    font-size: 64px;
-    font-family: Poppins;
-    font-weight: 700;
-    word-wrap: break-word;
-  }
-
-  .date {
-    color: white;
-    font-size: 24px;
-    font-family: Poppins;
-    font-weight: 700;
-    word-wrap: break-word;
-  }
-
-  > img {
-    position: absolute;
-    top: -20px;
-    width: 240px;
-    height: 185px;
-    object-fit: cover;
-    object-position: center;
-    /* background-color: green; */
-  }
-`;
+export default WeatherCarousel;

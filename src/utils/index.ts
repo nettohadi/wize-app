@@ -48,12 +48,15 @@ export const dayNames = [
  * https://api.openweathermap.org/data/2.5/forecast?q=mataram&appid=6d875ebff1f24739c03d55ca8d6dc535&units=metric
  * */
 
-export function repeat(count = 1, start = 1) {
-  const dummies: number[] = [];
-  let loopCount = 0;
-  for (let i = start; loopCount < count; loopCount++) {
-    dummies.push(i++);
-  }
+export const formatTemperature = (
+  temperature: number,
+  isInCelcius: boolean = true
+) => {
+  return isInCelcius
+    ? `${Math.round(temperature)}°C`
+    : `${celsiusToFahrenheit(temperature)}°F`;
+};
 
-  return dummies;
-}
+export const celsiusToFahrenheit = (temperatureInCelcius: number) => {
+  return Math.round((temperatureInCelcius * 9) / 5) + 32;
+};

@@ -1,13 +1,16 @@
 import "./App.css";
 import "@splidejs/react-splide/css";
 import TempButton from "./components/TempButton";
-import InfoCarousel from "./components/InfoCarousel";
-import TempBars, { TempBarValue } from "./components/TempBar";
+import WeatherCarousel from "./components/InfoCarousel";
+import TempBars from "./components/TempBars";
 import Footer from "./components/Footer";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { GroupedWeatherData } from "./types";
 import { fetchAll } from "./utils/api";
+
+import LoadingScreen from "./components/LoadingScreen";
+import ErrorScreen from "./components/ErrorScreen";
 
 function App() {
   const [dayIndex, setDayIndex] = useState(0);
@@ -37,7 +40,14 @@ function App() {
     fetchWeatherData();
   }, []);
 
-  console.log({ weatherData });
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
+  if (error) {
+    return <ErrorScreen />;
+  }
+
   return (
     <>
       <main>
@@ -45,19 +55,23 @@ function App() {
           <TempButton
             title="Celcius"
             isChecked={isInCelcius}
-            onClick={() => setIsInCelcius(!isInCelcius)}
+            onClick={() => setIsInCelcius(true)}
           />
           <TempButton
             title="Fahrenheit"
             isChecked={!isInCelcius}
-            onClick={() => setIsInCelcius(!isInCelcius)}
+            onClick={() => setIsInCelcius(false)}
           />
         </TempButtonContainer>
-        <InfoCarousel
+        <WeatherCarousel
           data={weatherData}
-          onClick={(index) => setDayIndex(index)}
+          onChange={(index) => setDayIndex(index)}
+          isInCelcius={isInCelcius}
         />
-        <TempBars values={weatherData[dayIndex]?.hourlyTemp} />
+        <TempBars
+          values={weatherData[dayIndex]?.hourlyTemp}
+          isInCelcius={isInCelcius}
+        />
       </main>
       <Footer />
     </>
@@ -70,4 +84,5 @@ const TempButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 16px;
+  padding-top: 40px;
 `;

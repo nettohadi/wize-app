@@ -1,6 +1,7 @@
 #root {
   width: 100%;
   height: 100vh;
+  background-color: #4695ea;
 }
 
 main {
@@ -9,15 +10,26 @@ main {
   justify-content: space-between;
   align-items: center;
   background-color: #4695ea;
-  padding: 16px;
-  height: calc(100vh - 250px);
+  padding: 8px;
+  height: calc(100vh - 229px);
 }
 
 .light-primary-color {
   background-color: #0a457b80;
 }
 
-/* .is-active > div {
-  transition: all ease 0.5s;
-  height: 200px;
+.splide__slide {
+  width: auto !important;
+}
+
+.splide__pagination {
+  display: none !important;
+}
+
+.splide__arrow {
+  background-color: transparent !important;
+}
+
+/* .splide__arrow--next {
+  right: 25px !important;
 } */

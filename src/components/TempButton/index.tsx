@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import * as S from "./styles";
 
 type TempButtonProps = {
   title: string;
@@ -8,40 +8,14 @@ type TempButtonProps = {
 
 const TempButton = ({ title, isChecked = false, onClick }: TempButtonProps) => {
   return (
-    <Button onClick={onClick}>
+    <S.Button onClick={onClick}>
       <RadioButton isChecked={isChecked} />
       {title}
-    </Button>
+    </S.Button>
   );
 };
 
 export default TempButton;
-
-const Button = styled.button`
-  display: flex;
-  gap: 20px;
-  min-width: 150px;
-  background-color: #0a457b80;
-  padding: 12px 20px;
-  border-radius: 17px;
-  color: white;
-  font-size: 16px;
-  font-family: Nunito Sans;
-  font-weight: 600;
-  line-height: 24px;
-  letter-spacing: 0.8px;
-  word-wrap: break-word;
-  border: none;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #1d5e9b80;
-  }
-
-  &:active {
-    background-color: #0c375f80;
-  }
-`;
 
 const RadioButton = ({ isChecked = false }: { isChecked: boolean }) => {
   return isChecked ? (
