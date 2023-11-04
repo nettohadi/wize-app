@@ -13,7 +13,7 @@ export const BrandContainer = styled.div`
   background-size: contain;
   background-position: center;
   width: 100%;
-  height: 220px;
+  height: 230px;
   background-color: #4695ea;
   border: 0px solid transparent;
   padding-bottom: 12px;
@@ -23,7 +23,7 @@ export const BrandContainer = styled.div`
 export const Wave = styled.div`
   background-color: white;
   position: absolute;
-  height: 90px;
+  height: 94px;
   width: 100%;
   bottom: 0px;
   z-index: -1;

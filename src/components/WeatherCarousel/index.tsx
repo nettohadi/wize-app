@@ -15,7 +15,7 @@ const WeatherCarousel = ({
   isInCelcius: boolean;
 }) => {
   return (
-    <div className="container" style={{ width: "100%", maxWidth: "421px" }}>
+    <S.Container>
       <Splide
         aria-label="My Favorite Images"
         options={{
@@ -35,7 +35,7 @@ const WeatherCarousel = ({
           {data?.slice(0, 5)?.map((item) => {
             return (
               <SplideSlide>
-                <S.Container>
+                <S.Slide>
                   <img src={getWeatherImage(item.icon)} />
                   <div className="box">
                     <div className="temperature">
@@ -43,7 +43,7 @@ const WeatherCarousel = ({
                     </div>
                     <div className="date">{item.date}</div>
                   </div>
-                </S.Container>
+                </S.Slide>
               </SplideSlide>
             );
           })}
@@ -57,7 +57,7 @@ const WeatherCarousel = ({
           </button>
         </div>
       </Splide>
-    </div>
+    </S.Container>
   );
 };
 
