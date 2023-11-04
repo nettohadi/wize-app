@@ -4,6 +4,9 @@ export const TempBarGroup = styled.div`
   display: flex;
   flex-direction: row;
   gap: 8px;
+  width: 95%;
+  justify-content: center;
+  max-width: 355px;
 `;
 
 export const Container = styled.div`
@@ -17,6 +20,7 @@ export const Container = styled.div`
   font-weight: 700;
   font-size: 16px;
   font-family: Poppins;
+  width: 100%;
 `;
 
 export const Wrapper = styled.div`
@@ -24,7 +28,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   height: 120px;
-  width: 37.75px;
+  width: 100%;
+  max-width: 37px;
   border-radius: 10px;
   background-color: #0a457b80;
 `;
