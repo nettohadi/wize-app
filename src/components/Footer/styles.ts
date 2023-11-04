@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
-export const BrandContainer = styled.div`
+export const Container = styled.div`
   position: absolute;
   bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+`;
+
+export const BrandContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -12,8 +20,10 @@ export const BrandContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 100%;
-  height: 200px;
+  width: 100vw;
+  max-width: 360px;
+  min-width: 360px;
+  height: 190px;
   background-color: transparent;
   padding-bottom: 12px;
   z-index: 1;
@@ -21,10 +31,9 @@ export const BrandContainer = styled.div`
 
 export const Wave = styled.div`
   background-color: white;
-  position: absolute;
-  height: 85px;
+  height: 80px;
   width: 100%;
-  bottom: 0px;
-  z-index: -1;
-  display: none;
+  flex-grow: 1;
+  bottom: 0;
+  position: absolute;
 `;

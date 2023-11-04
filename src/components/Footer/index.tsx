@@ -4,11 +4,14 @@ import WizeSvg from "./WizeSvg";
 
 const Footer = () => {
   return (
-    <S.BrandContainer>
-      <CharacterSvg />
-      <WizeSvg />
-      {/* <S.Wave /> */}
-    </S.BrandContainer>
+    <S.Container>
+      <S.Wave />
+      <S.BrandContainer>
+        <CharacterSvg />
+        <WizeSvg />
+      </S.BrandContainer>
+      <S.Wave />
+    </S.Container>
   );
 };
 
