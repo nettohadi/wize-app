@@ -11,7 +11,7 @@ export async function fetchHourly(cityName: string = "jakarta") {
   try {
     const response = await axios.get(hourlyEndpoint);
     return response.data;
-  } catch (e) {
+  } catch (e: any) {
     return e.response.data;
   }
 }
@@ -26,7 +26,6 @@ export async function fetchAll(cityName: string) {
 
   const groupedByDay = transformWeatherData(hourlyData.list);
 
-  console.log({ groupedByDay });
   return groupedByDay;
 }
 

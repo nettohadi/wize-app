@@ -77,30 +77,6 @@ export const cloudy: IWeatherDesc = {
   icon: "5",
 };
 
-type WeatherDetail = {
-  id: number;
-  main: string;
-  description: string;
-  icon: string;
-};
-
-type MainDetail = {
-  temp: number;
-  feels_like: number;
-  temp_min: number;
-  temp_max: number;
-  pressure: number;
-  sea_level: number;
-  grnd_level: number;
-  humidity: number;
-  temp_kf: number;
-};
-
-// type WeatherEntry = {
-//   main: MainDetail;
-//   weather: WeatherDetail[];
-// };
-
 export type TimeTemp = {
   time: string;
   temp: number;

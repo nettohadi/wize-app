@@ -1,14 +1,7 @@
 import sunny from "../assets/images/sunny.png";
 import windy from "../assets/images/windy.png";
 import thunderStorm from "../assets/images/thunderstorm.png";
-import clouds from "../assets/images/clouds.png";
 import rainy from "../assets/images/rainy.png";
-
-/**
- Images is taken from https://www.flaticon.com/
- Images created by fjstudio
- <div>Icons made by <a href="https://www.flaticon.com/authors/fjstudio" title="fjstudio">fjstudio</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
- */
 
 export const weatherImages: any = {
   "01d": sunny,
@@ -27,16 +20,6 @@ export const weatherImages: any = {
 export function getWeatherImage(iconCodeFromApi: string = ""): string {
   return weatherImages[iconCodeFromApi] ?? weatherImages["01d"];
 }
-
-export const dayNames = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
 
 /*
  * http://history.openweathermap.org/data/2.5/history/city?

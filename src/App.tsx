@@ -1,7 +1,7 @@
 import "./App.css";
 import "@splidejs/react-splide/css";
 import TempButton from "./components/TempButton";
-import WeatherCarousel from "./components/InfoCarousel";
+import WeatherCarousel from "./components/WeatherCarousel";
 import TempBars from "./components/TempBars";
 import Footer from "./components/Footer";
 import styled from "styled-components";
