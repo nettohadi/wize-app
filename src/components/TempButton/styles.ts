@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   display: flex;
-  gap: 20px;
-  min-width: 171px;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
   background-color: #0a457b80;
   padding: 12px 20px;
   box-shadow: 0px 4px 16px rgba(10, 69, 123, 0.32);

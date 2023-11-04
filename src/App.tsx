@@ -1,10 +1,10 @@
 import "./App.css";
 import "@splidejs/react-splide/css";
+import * as S from "./styles";
 import TempButton from "./components/TempButton";
 import WeatherCarousel from "./components/WeatherCarousel";
 import TempBars from "./components/TempBars";
 import Footer from "./components/Footer";
-import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { GroupedWeatherData } from "./types";
 import { fetchAll } from "./utils/api";
@@ -51,7 +51,7 @@ function App() {
   return (
     <>
       <main>
-        <TempButtonContainer>
+        <S.TempButtonContainer>
           <TempButton
             title="Celcius"
             isChecked={isInCelcius}
@@ -62,7 +62,7 @@ function App() {
             isChecked={!isInCelcius}
             onClick={() => setIsInCelcius(false)}
           />
-        </TempButtonContainer>
+        </S.TempButtonContainer>
         <WeatherCarousel
           data={weatherData}
           onChange={(index) => setDayIndex(index)}
@@ -79,10 +79,3 @@ function App() {
 }
 
 export default App;
-
-const TempButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  padding-top: 40px;
-`;

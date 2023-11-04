@@ -11,7 +11,7 @@ main {
   align-items: center;
   background-color: #4695ea;
   padding: 8px;
-  height: calc(100vh - 229px);
+  height: 600px;
 }
 
 .light-primary-color {

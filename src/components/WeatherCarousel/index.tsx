@@ -32,7 +32,7 @@ const WeatherCarousel = ({
         }}
       >
         <SplideTrack>
-          {data?.map((item) => {
+          {data?.slice(0, 5)?.map((item) => {
             return (
               <SplideSlide>
                 <S.Container>
