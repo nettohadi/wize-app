@@ -7,7 +7,7 @@ const Footer = () => {
     <S.BrandContainer>
       <CharacterSvg />
       <WizeSvg />
-      <S.Wave />
+      {/* <S.Wave /> */}
     </S.BrandContainer>
   );
 };
