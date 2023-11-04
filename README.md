@@ -1,6 +1,6 @@
 # Wize App
 
-Wize app is an app that shows a 5 days weather forecast for a particular location
+Wize app is an app that shows a 5 days weather forecast for a particular location. You can see the live demo [here](https://wize-app.vercel.app/).
 
 <div align="center">
 <img src="public/images/Screenshot.png" width="200">
