@@ -20,6 +20,7 @@ const WeatherCarousel = ({
   return (
     <S.Container>
       <Splide
+        className="slide-container"
         aria-label="My Favorite Images"
         options={{
           rewind: true,

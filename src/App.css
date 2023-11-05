@@ -30,3 +30,8 @@ main {
 .splide__arrow {
   background-color: transparent !important;
 }
+
+.is-active.is-visible .slide-container {
+  opacity: 1;
+  transition: all ease-in-out 0.3s;
+}

@@ -17,6 +17,7 @@ export const Slide = styled.div<{
   width: 240px;
   position: relative;
   margin-top: 20px;
+  opacity: 0.7;
 
   > .box {
     background-color: #0a457b80;
