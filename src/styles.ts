@@ -13,5 +13,5 @@ export const TempButtonContainer = styled.div<{
   transform: translateY(
     ${({ isFirstRender }) => (isFirstRender ? "-100px" : "0px")}
   );
-  transition: ${({ transition }) => transition};
+  transition: all ease 0.3s;
 `;

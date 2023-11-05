@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 600px;
+  max-width: 390px;
 `;
 
 export const Slide = styled.div<{
@@ -17,13 +17,14 @@ export const Slide = styled.div<{
   width: 240px;
   position: relative;
   margin-top: 20px;
-  opacity: 0.7;
+  opacity: 0.5;
+  transition: all ease-in 0.2s;
 
   > .box {
     background-color: #0a457b80;
     box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.32);
     border-radius: 24px;
-    height: 180px;
+    height: 150px;
     width: 240px;
     margin-right: 10px;
     display: flex;
@@ -32,6 +33,7 @@ export const Slide = styled.div<{
     align-items: center;
     gap: 14px;
     padding-top: 48px;
+    transition: all ease-in 0.2s;
   }
 
   .temperature {

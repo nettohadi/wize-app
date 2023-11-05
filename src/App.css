@@ -32,6 +32,11 @@ main {
 }
 
 .is-active.is-visible .slide-container {
-  opacity: 1;
-  transition: all ease-in-out 0.3s;
+  opacity: 1 !important;
+  transition: all ease-in 0.2s;
+}
+
+.is-active.is-visible .box {
+  height: 180px !important;
+  transition: all ease-in 0.2s;
 }

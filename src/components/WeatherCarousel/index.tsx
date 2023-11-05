@@ -20,7 +20,6 @@ const WeatherCarousel = ({
   return (
     <S.Container>
       <Splide
-        className="slide-container"
         aria-label="My Favorite Images"
         options={{
           rewind: true,
@@ -39,7 +38,11 @@ const WeatherCarousel = ({
           {data?.slice(0, 5)?.map((item) => {
             return (
               <SplideSlide>
-                <S.Slide isFirstRender={isFirstRender} transition={transition}>
+                <S.Slide
+                  isFirstRender={isFirstRender}
+                  transition={transition}
+                  className="slide-container"
+                >
                   <img src={getWeatherImage(item.icon)} />
                   <div className="box">
                     <div className="temperature">
