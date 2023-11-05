@@ -70,13 +70,11 @@ function App() {
             onClick={() => setIsInCelcius(false)}
           />
         </S.TempButtonContainer>
-        <S.Wrapper isFirstRender={isFirstRender} transition={transition}>
-          <WeatherCarousel
-            data={weatherData}
-            onChange={(index) => setDayIndex(index)}
-            isInCelcius={isInCelcius}
-          />
-        </S.Wrapper>
+        <WeatherCarousel
+          data={weatherData}
+          onChange={(index) => setDayIndex(index)}
+          isInCelcius={isInCelcius}
+        />
         <TempBars
           values={weatherData[dayIndex]?.hourlyTemp}
           isInCelcius={isInCelcius}
