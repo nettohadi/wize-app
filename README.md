@@ -9,8 +9,7 @@ Wize app is an app that shows a 5 days weather forecast for a particular locatio
 ## Getting Started
 
 - Clone the GitHub repository.
-- Execute yarn or npm install to install all necessary dependencies.
-- Copy the .env.example file and rename the copy to .env.
-- Populate the VITE_API_KEY variable within the .env file with your OpenWeather API key.
-- Launch the application in development mode by running yarn dev or npm run dev.
-- These instructions are designed to facilitate a smooth setup process for running the application locally.
+- Execute `yarn` or `npm install` to install all necessary dependencies.
+- Copy the `.env.example` file and rename the copy to `.env`.
+- Populate the `VITE_API_KEY` variable within the `.env` file with your OpenWeather API key.
+- Launch the application in development mode by running `yarn dev` or `npm run dev`.
