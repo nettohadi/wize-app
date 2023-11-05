@@ -11,6 +11,7 @@ import { fetchAll } from "./utils/api";
 
 import LoadingScreen from "./components/LoadingScreen";
 import ErrorScreen from "./components/ErrorScreen";
+import useFirstRenderAnimation from "./utils/useFirstRenderAnimation.hook";
 
 function App() {
   const [dayIndex, setDayIndex] = useState(0);
@@ -18,6 +19,7 @@ function App() {
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [isInCelcius, setIsInCelcius] = useState(true);
+  const { isFirstRender, transition } = useFirstRenderAnimation(3500);
 
   const fetchWeatherData = (cityName = "") => {
     setLoading(true);
@@ -53,7 +55,10 @@ function App() {
   return (
     <>
       <main>
-        <S.TempButtonContainer>
+        <S.TempButtonContainer
+          isFirstRender={isFirstRender}
+          transition={transition}
+        >
           <TempButton
             title="Celcius"
             isChecked={isInCelcius}
@@ -65,11 +70,13 @@ function App() {
             onClick={() => setIsInCelcius(false)}
           />
         </S.TempButtonContainer>
-        <WeatherCarousel
-          data={weatherData}
-          onChange={(index) => setDayIndex(index)}
-          isInCelcius={isInCelcius}
-        />
+        <S.Wrapper isFirstRender={isFirstRender} transition={transition}>
+          <WeatherCarousel
+            data={weatherData}
+            onChange={(index) => setDayIndex(index)}
+            isInCelcius={isInCelcius}
+          />
+        </S.Wrapper>
         <TempBars
           values={weatherData[dayIndex]?.hourlyTemp}
           isInCelcius={isInCelcius}

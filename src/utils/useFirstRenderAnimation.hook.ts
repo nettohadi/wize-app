@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
 
-const useFirstRenderAnimation = (): {
+const useFirstRenderAnimation = (
+  delayInMiliSecond: number = 0
+): {
   isFirstRender: boolean;
   transition: string;
 } => {
   const [isFirstRender, setIsFirstRender] = useState(true);
-  useEffect(() => setIsFirstRender(false), []);
+  useEffect(() => {
+    const timeout = setTimeout(
+      () => setIsFirstRender(false),
+      delayInMiliSecond
+    );
+    return () => clearTimeout(timeout);
+  }, []);
   return { isFirstRender, transition: "all ease-in-out 0.4s" };
 };
 
