@@ -34,7 +34,11 @@ export const Wrapper = styled.div`
   background-color: #0a457b80;
 `;
 
-export const Bar = styled.div<{ value: number; maxTemperature: number }>`
+export const Bar = styled.div<{
+  value: number;
+  maxTemperature: number;
+  transition: string;
+}>`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -43,6 +47,7 @@ export const Bar = styled.div<{ value: number; maxTemperature: number }>`
     `${(value / maxTemperature) * 100}%`};
   background-color: #f6d476;
   border-radius: 0px 0px 10px 10px;
+  transition: ${({ transition }) => transition};
   font-size: 12px;
   overflow: hidden;
 `;
