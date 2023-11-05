@@ -15,11 +15,3 @@ export const TempButtonContainer = styled.div<{
   );
   transition: ${({ transition }) => transition};
 `;
-
-export const Wrapper = styled.div<{
-  isFirstRender: boolean;
-  transition: string;
-}>`
-  opacity: ${({ isFirstRender }) => (isFirstRender ? "0" : "1")};
-  transition: ${({ transition }) => transition};
-`;

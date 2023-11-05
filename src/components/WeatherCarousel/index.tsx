@@ -4,6 +4,7 @@ import { GroupedWeatherData } from "../../types";
 import { formatTemperature, getWeatherImage } from "../../utils";
 import leftArrow from "../../assets/images/left-arrow.png";
 import rightArrow from "../../assets/images/right-arrow.png";
+import useFirstRenderAnimation from "../../utils/useFirstRenderAnimation.hook";
 
 const WeatherCarousel = ({
   data,
@@ -14,6 +15,8 @@ const WeatherCarousel = ({
   onChange: (activeIndex: number) => void;
   isInCelcius: boolean;
 }) => {
+  const { isFirstRender, transition } = useFirstRenderAnimation(200);
+
   return (
     <S.Container>
       <Splide
@@ -35,7 +38,7 @@ const WeatherCarousel = ({
           {data?.slice(0, 5)?.map((item) => {
             return (
               <SplideSlide>
-                <S.Slide>
+                <S.Slide isFirstRender={isFirstRender} transition={transition}>
                   <img src={getWeatherImage(item.icon)} />
                   <div className="box">
                     <div className="temperature">

@@ -5,7 +5,10 @@ export const Container = styled.div`
   max-width: 600px;
 `;
 
-export const Slide = styled.div`
+export const Slide = styled.div<{
+  isFirstRender: boolean;
+  transition: string;
+}>`
   color: white;
   display: flex;
   justify-content: center;
@@ -36,6 +39,8 @@ export const Slide = styled.div`
     font-family: Poppins;
     font-weight: 700;
     word-wrap: break-word;
+    opacity: ${({ isFirstRender }) => (isFirstRender ? "0" : "1")};
+    transition: ${({ transition }) => transition};
   }
 
   .date {
@@ -44,6 +49,8 @@ export const Slide = styled.div`
     font-family: Poppins;
     font-weight: 700;
     word-wrap: break-word;
+    opacity: ${({ isFirstRender }) => (isFirstRender ? "0" : "1")};
+    transition: ${({ transition }) => transition};
   }
 
   > img {
@@ -53,6 +60,8 @@ export const Slide = styled.div`
     height: 185px;
     object-fit: cover;
     object-position: center;
+    opacity: ${({ isFirstRender }) => (isFirstRender ? "0" : "1")};
+    transition: ${({ transition }) => transition};
   }
 `;
 
@@ -60,3 +69,8 @@ export const Arrow = styled.img`
   height: 37px;
   width: 32px;
 `;
+
+export const Wrapper = styled.div<{
+  isFirstRender: boolean;
+  transition: string;
+}>``;
